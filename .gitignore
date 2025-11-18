@@ -38,3 +38,7 @@ build/
 ### Mac OS ###
 .DS_Store
 
+### Local ignore ###
+src/test/java/utilities/PropertyUtils.java
+src/test/resources/configuration/application.properties
+src/test/java/stepdefinition/HomeStep.java
