@@ -21,7 +21,7 @@ public class LoginStep {
         loginPage.isInTheLoginPage();
     }
 
-    @When("El usuario se loguea de forma exitsa")
+    @When("luego se loguea de forma exitosa")
     public void enterValidCredentials() {
         loginPage.userSendCredentials();
     }

@@ -8,6 +8,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.PropertyUtils;
 import static utilities.WebDriverUtils.scrollToElement;
 import static utilities.WebDriverUtils.wait;
+import static utilities.WebDriverUtils.takeScreenshot;
 
 
 public class LoginPage {
@@ -35,7 +36,9 @@ public class LoginPage {
             wait.until(ExpectedConditions.elementToBeClickable(lbl_Title));
             Assert.assertTrue("El title no está habilitado", lbl_Title.isDisplayed());
         } catch(AssertionError | Exception e){
+            takeScreenshot("Error_Titulo_Pagina");
             System.out.println("Error encontrando el titulo de la pagina" + e);
+            throw e;
         }
     }
 
@@ -53,6 +56,7 @@ public class LoginPage {
             Thread.sleep(4000);
             btn_login.click();
         } catch(AssertionError | Exception e){
+            takeScreenshot("Error_sendCredentials");
             System.out.println("Error enviando las credenciales a la pagina");
             System.out.println("Error" + e);
         }

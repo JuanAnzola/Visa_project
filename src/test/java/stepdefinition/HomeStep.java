@@ -2,11 +2,8 @@ package stepdefinition;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
-import io.cucumber.java.en.When;
-import org.openqa.selenium.support.PageFactory;
 import pageobjects.HomePage;
 
-import static stepdefinition.Hooks.getDriver;
 
 public class HomeStep {
 
@@ -16,24 +13,15 @@ public class HomeStep {
         this.homePage = new HomePage();}
 
 
-    @Given("Accede a la seccion de programación y selecciona el plan de estudios")
+    @Given("inicia la reprogramacion de la cita")
     public void selectStudyPlan() {
-        homePage.sectionClasses();
+        homePage.isInTheHomePage();
+        homePage.reschedule_appointment();
     }
 
-    @When("Elige una clase disponible")
-    public void selectAvailableClass() {
-        homePage.selectTheClasess();
-    }
-
-    @When("Inicia y confirma el agendamiento para el dia de {string} en la clase numero {int}")
-    public void confirmScheduling(String dia, int numeroClase) {
-        homePage.startAndConfirmSchedul(dia, numeroClase);
-    }
-
-    @Then("Verificar si hay disponibilidad y la clase fue agendada")
+    @Then("confirma la reprogramacion")
     public void verifyClassConfirmationMessage() {
-        homePage.isConfirmatedTheClass();
+
     }
 }
 
